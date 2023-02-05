@@ -1,8 +1,8 @@
 import express from "express"
-import {deck} from "../controllers/deck.controller.js"
+import {createDeck} from "../controllers/deck.controller.js"
 
 const router = express.Router()
 
-router.get("/",deck)
+router.post("/new", createDeck)
 
 export default router
