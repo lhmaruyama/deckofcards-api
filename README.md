@@ -1,22 +1,10 @@
 ## Introdução
-Este projeto consiste no desenvolvimento de uma API (ou backend) para uma aplicação web de portal de notícias.
+Este projeto consiste no desenvolvimento de uma API de deck de cartas.
 Foi implementado os seguintes recursos:
 <br>
 -Acesso e busca de notícias
 <br>
 -Posts, likes e comentários de notícias
-<br>
--Cadastro e login de usuário
-<br>
--Autenticação de usuário
-<br>
--Segurança e criptografia de senha
-<br>
--Restrição de recursos a usuários não cadastrados
-<br>
--Permissão/Restrição de recursos a usuários cadastrados
-<br>
--Documentação e Deploy da API
 <br>
 
 Este projeto foi desenvolvido ao longo do curso de formação MERN STACK para desenvolvedores Full Stack e é dividido em duas partes, front end e back end. Nesta primeira etapa foi implementada toda a estrutura "não visual", ou seja o back end. É o "código" que conecta a internet com o banco de dados, gerencia as conexões dos usuários e alimenta a aplicação web. O backend trabalha em conjunto com o frontend para entregar o produto para o usuário final. O front end será desenvolvido em outro repositório mais adiante. A documentação deste projeto API Portal News pode ser acessada no link abaixo:
@@ -52,6 +40,7 @@ x- Arquitetura de software: | package.json "type": "module" | src | controllers 
 <br>
 x- Rota deckRoute
 <br>
+x- Conexão com Banco de dados Mongo DB | Network Access IP 0.0.0.0/0 | npm i mongoose |
 <br>
 <br>
 <br>
