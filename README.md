@@ -32,16 +32,17 @@ O objetivo deste projeto é:
 <br>
 
 ## Roteiro de projeto
-1- Repositório GitHub, Git, Readme.md e configuração de ambiente.
+1- Repositório GitHub, Git, Readme.md, Thunder Client e configuração de ambiente.
 <br>
 x- Instalação de bibliotecas:  | npm init -y | npm i express | npm i nodemon | script start "node src/index" | script "start": "node src/index" | script "dev": "nodemon src/index" |
 <br>
 x- Arquitetura de software: | package.json "type": "module" | src | controllers | database | middlewares | models | routes | services |
 <br>
-x- Rota deckRoute
+x- Rota deckRoute de teste inical
 <br>
 x- Conexão com Banco de dados Mongo DB | Network Access IP 0.0.0.0/0 | npm i mongoose |
 <br>
+x- Rota deckRoute post definida, cria um documento deck com id automático que fará referencia ao deck
 <br>
 <br>
 <br>

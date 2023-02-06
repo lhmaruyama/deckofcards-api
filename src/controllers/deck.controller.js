@@ -1,6 +1,6 @@
 import {createService} from "../services/deck.service.js"
 
-export const createDeck = async (req, res) => {
+export const create = async (req, res) => {
     try{
         //const {deck} = req.body
         //const myDeck = await createService(deck)

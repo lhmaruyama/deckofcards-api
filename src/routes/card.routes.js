@@ -1,8 +1,9 @@
 import express from "express"
-import {card} from "../controllers/card.controller.js"
-
+import {create} from "../controllers/card.controller.js"
+import {deckMiddleware} from "../middlewares/deck.middleware.js"
 const router = express.Router()
 
-router.get("/",card)
+//router.post("/deck/:id", deckMiddleware)
+router.post("/deck/:id", deckMiddleware, create)
 
 export default router
