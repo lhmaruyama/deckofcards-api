@@ -44,6 +44,7 @@ x- Conexão com Banco de dados Mongo DB | Network Access IP 0.0.0.0/0 | npm i mo
 <br>
 x- Rota deckRoute post definida, cria um documento deck com id automático que fará referencia ao deck
 <br>
+x- Rota deckRoute get id definida, busca o deck pelo id
 <br>
 <br>
 <br>
