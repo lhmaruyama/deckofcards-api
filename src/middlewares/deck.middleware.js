@@ -1,4 +1,4 @@
-import {findService} from "../services/deck.service.js"
+import {findAllService} from "../services/deck.service.js"
 
 export const deckMiddleware = (req, res, next)=>{
     try {

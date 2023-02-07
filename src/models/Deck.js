@@ -1,13 +1,18 @@
 import mongoose from "mongoose"
-let deck_id = Math.floor(Date.now() * Math.random()).toString(36)
+//const deck_id = Math.floor(Date.now() * Math.random()).toString(36)
 const DeckSchema = new mongoose.Schema({
     deck_id:{
         type: String,
-        default: deck_id
+        require: true,
+        //default: deck_id
+    },
+    cards:{
+        type: Array,
+        require: true,
     },
     remaining:{
         type: Number,
-        default: 52
+        require: true,
     },
     createdAt: {
         type: Date,
