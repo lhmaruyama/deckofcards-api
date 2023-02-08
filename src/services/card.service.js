@@ -1,3 +1,4 @@
 import Card from "../models/Card.js"
 
-export const createService = (query) => Card.create(query)
+export const eraseService = (query) => Card.findByIdAndDelete(query)
+export const updateService = (query) => Card.findOneAndUpdate(query)
