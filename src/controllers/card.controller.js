@@ -36,6 +36,7 @@ export const eraseAndUpdate = async (req, res) => {
         //console.log(typeof id)
         //console.log(typeof count)
 
+        await eraseService(card)
         
         res.status(201).send({ //status 201: created
             message: "Card created successfully",

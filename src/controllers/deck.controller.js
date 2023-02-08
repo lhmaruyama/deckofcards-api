@@ -1,4 +1,4 @@
-import { createService, findAllService, findService } from "../services/deck.service.js"
+import { createService, findAllService, findService, eraseService } from "../services/deck.service.js"
 
 export const create = async (req, res) => {
     try {
@@ -72,4 +72,60 @@ export const find = async (req, res) => {
     } catch (err) {
         res.status(500).send({ message: err.message })
     }
+}
+
+export const eraseAndUpdate = async (req, res) => {
+    try{
+
+        //const {deck} = req.body
+        //const myDeck = await createService(deck)
+        //const myCard = await createService()
+
+        //console.log(req.body) == console.log({deck})
+
+        //console.log("id: " + id)
+        //console.log("req.id: " + req.id)
+
+        console.log("req.params: ")
+        console.log(req.params.id)
+        const id = req.params.id
+
+        console.log("req.query: ")
+        console.log(req.query.count)
+        //const count = parseInt(req.query.count)
+
+        //console.log("req.remaining: ")
+        //console.log(req.remaining)
+        //const remaining = req.remaining
+
+        const cards = req.cards
+        //console.log("cards: ")
+        //console.log(req.cards)
+        const codes = cards.map((el)=>{
+            return el.code
+        })
+        //console.log(req.cards[index])
+        
+        const remaining = codes.length
+        console.log("remaining: "  + remaining)
+
+        const index = Math.floor(Math.random()*remaining)
+        console.log("index: " + index)
+        
+        const code = codes[index]
+        console.log("code: " + code)
+        //console.log(typeof id)
+        //console.log(typeof count)
+
+        await eraseService(id, code)
+        
+        res.status(201).send({ //status 201: created
+            message: "Card created successfully",
+            //myCard
+        })
+    
+    }catch(err){
+        res.status(500).send({message: err.message})
+    }
+    
 }

@@ -11,7 +11,7 @@ export const deckMiddleware = async (req, res, next)=>{
         //console.log(Array. isArray(card))
         //console.log(card[0].remaining)
         //return res.send("sefwef")
-        req.remaining = card[0].remaining
+        //req.remaining = card[0].remaining
         req.cards = card[0].cards
         return next()
     } catch (err) {
