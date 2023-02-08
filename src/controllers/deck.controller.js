@@ -1,4 +1,4 @@
-import { createService, findAllService, findService, eraseService } from "../services/deck.service.js"
+import { createService, findAllService, findService, eraseService, updateService } from "../services/deck.service.js"
 
 export const create = async (req, res) => {
     try {
@@ -105,9 +105,10 @@ export const eraseAndUpdate = async (req, res) => {
             return el.code
         })
         //console.log(req.cards[index])
+        console.log(codes)
         
-        const remaining = codes.length
-        console.log("remaining: "  + remaining)
+        let remaining = codes.length
+        //console.log("remaining: "  + remaining)
 
         const index = Math.floor(Math.random()*remaining)
         console.log("index: " + index)
@@ -117,8 +118,11 @@ export const eraseAndUpdate = async (req, res) => {
         //console.log(typeof id)
         //console.log(typeof count)
 
+        remaining = remaining - 1
+        console.log("remaining: "  + remaining)
         await eraseService(id, code)
-        
+        await updateService(id, remaining)
+
         res.status(201).send({ //status 201: created
             message: "Card created successfully",
             //myCard

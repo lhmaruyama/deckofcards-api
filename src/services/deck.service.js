@@ -8,4 +8,5 @@ export const findService = (id) => Deck.find({ deck_id: id })
 
 export const eraseService = (id, code) => Deck.findOneAndUpdate({ deck_id: id }, { $pull: { cards: { code: code } } })
 
-export const updateService = (id, remaining) => Deck.findOneAndUpdate({ deck_id: id }, { $pull: { remaining: remaining } })
+//export const updateService = (id, remaining) => Deck.findOneAndUpdate({ deck_id: id }, { $push: { remaining: remaining } })
+export const updateService = (id, remaining) => Deck.findOneAndUpdate({ deck_id: id }, { remaining })
