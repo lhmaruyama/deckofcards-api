@@ -50,5 +50,6 @@ x- Rota cardRoute patch card definida, altera o documento (cards e remaining) ba
 <br>
 x- Req.send definido, resposta da requisição.
 <br>
+x- Documentação com swagger | npm i swagger-ui-express |
 <br>
 

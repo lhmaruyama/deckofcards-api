@@ -1,0 +1,134 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Deck of Cards API Documentation",
+      "description": "This documentation will help you understand how to consume data from the Deck of Cards API.",
+      "contact": {
+        "email": "lhmaruyama@gmail.com"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "Local Server"
+      }
+    ],
+    "paths": {
+      "/deck/new": {
+        "post": {
+          "summary": "Create a new deck",
+          "description": "The deck has 52 cards, no jokers. After seven days the deck will be deleted from the database.",
+          "tags": ["Deck"],
+          "responses": {
+            "500": {
+              "description": "Server error"
+            },
+            "201": {
+                "description": "Created"
+              }
+          }
+        }
+      },
+      "/deck": {
+          "get": {
+            "summary": "Search decks",
+            "description": "Search all created decks.",
+            "tags": ["Deck"],
+            "responses": {
+              "500": {
+                  "description": "Server error"
+              },
+              "400": {
+                "description": "Not found"
+              },
+              "200": {
+                "description": "Found"
+              }
+            }
+          }
+        },
+        "/deck/{id}/": {
+            "get": {
+              "summary": "Search deck by id",
+              "description": "Search specific deck by id",
+              "tags": ["Deck"],
+              "parameters": [
+                {
+                  "in": "path",
+                  "name": "id",
+                  "type": "string",
+                  "description": "Deck ID",
+                  "required": true
+                }
+              ],
+              "responses": {
+                "500": {
+                  "description": "Server error"
+                },
+                "400": {
+                  "description": "Not Found"
+                },
+                "200": {
+                  "description": "Found"
+                }
+              }
+            }
+          },
+          "/card/{id}/": {
+              "patch": {
+                "summary": "Removes one or more cards from the deck",
+                "description": "Removes one or more cards from the deck",
+                "tags": ["Card"],
+                "parameters": [
+                  {
+                    "in": "path",
+                    "name": "id",
+                    "type": "string",
+                    "description": "Deck ID",
+                    "required": true
+                  },
+                  {
+                    "in": "query",
+                    "name": "count",
+                    "type": "string",
+                    "required": true
+                  }
+                ],
+                "responses": {
+                  "500": {
+                    "description": "Server error"
+                  },
+                  "400": {
+                    "description": "Not Found"
+                  },
+                  "200": {
+                    "description": "Found"
+                  }
+                }
+              }
+            }
+    },
+    "components": {
+      "schemas": {
+        "Deck": {
+          "type": "object",
+          "properties": {
+            "deck_id": {
+              "type": "string"
+            },
+            "cards": {
+              "type": "array"
+            },
+            "remaining": {
+              "type": "number"
+            },
+            "createdAt": {
+              "type": "date"
+            }
+          }
+        }
+      }
+    }
+
+}

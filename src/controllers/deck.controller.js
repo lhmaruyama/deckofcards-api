@@ -47,10 +47,10 @@ export const findAll = async (req, res) => {
 
     try {
         
-        const cards = await findAllService()
+        const decks = await findAllService()
 
         res.send({
-            cards
+            decks
         })
 
     } catch (err) {
