@@ -77,55 +77,41 @@ export const find = async (req, res) => {
 export const eraseAndUpdate = async (req, res) => {
     try{
 
-        //const {deck} = req.body
-        //const myDeck = await createService(deck)
-        //const myCard = await createService()
-
-        //console.log(req.body) == console.log({deck})
-
-        //console.log("id: " + id)
-        //console.log("req.id: " + req.id)
-
-        console.log("req.params: ")
-        console.log(req.params.id)
         const id = req.params.id
 
-        console.log("req.query: ")
-        console.log(req.query.count)
-        //const count = parseInt(req.query.count)
+        const deck_id = req.deck_id
 
-        //console.log("req.remaining: ")
-        //console.log(req.remaining)
-        //const remaining = req.remaining
+        const count = parseInt(req.query.count)
 
-        const cards = req.cards
-        //console.log("cards: ")
-        //console.log(req.cards)
+        const deck = req.cards
+
+/*         
         const codes = cards.map((el)=>{
             return el.code
         })
-        //console.log(req.cards[index])
-        console.log(codes)
-        
-        let remaining = codes.length
-        //console.log("remaining: "  + remaining)
+*/
 
-        const index = Math.floor(Math.random()*remaining)
-        console.log("index: " + index)
-        
-        const code = codes[index]
-        console.log("code: " + code)
-        //console.log(typeof id)
-        //console.log(typeof count)
+        let remaining = deck.length
 
-        remaining = remaining - 1
-        console.log("remaining: "  + remaining)
-        await eraseService(id, code)
+        let cards = []
+        let codes = []
+
+        for (let n = 0; n < count; n++) {
+            let index = Math.floor(Math.random()*remaining)
+            cards[n] = deck[index]
+            codes[n] = cards[n].code
+            //const code = codes[n]
+            await eraseService(id, codes[n])            
+            remaining = remaining - 1
+        }
+
         await updateService(id, remaining)
 
-        res.status(201).send({ //status 201: created
+        res.status(201).send({
             message: "Card created successfully",
-            //myCard
+            deck_id,
+            cards,
+            remaining
         })
     
     }catch(err){

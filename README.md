@@ -46,7 +46,9 @@ x- Rota deckRoute post definida, cria um documento deck com id automático que f
 <br>
 x- Rota deckRoute get id definida, busca o deck pelo id
 <br>
+x- Rota cardRoute patch card definida, altera o documento (cards e remaining) baseado no valor da carta sorteada.
 <br>
+x- Req.send definido, resposta da requisição.
 <br>
 <br>
 
