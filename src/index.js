@@ -4,7 +4,7 @@ import {connectDatabase} from "./database/database.js"
 
 import deckRoute from "./routes/deck.routes.js"
 import cardRoute from "./routes/card.routes.js"
-import docRoute from "./routes/swagger.routes.js"
+import docRoute from "./routes/swagger.routes.cjs"
 
 const app = express()
 
