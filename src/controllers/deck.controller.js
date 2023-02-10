@@ -48,7 +48,9 @@ export const findAll = async (req, res) => {
     try {
         
         const decks = await findAllService()
-
+        if(!decks){
+            return res.status(400).send({ message: "No deck of cards found" })
+        }
         res.send({
             decks
         })

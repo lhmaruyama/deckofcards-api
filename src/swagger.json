@@ -25,15 +25,23 @@
               "description": "Server error"
             },
             "201": {
-                "description": "Created"
+                "description": "Deck created successfully",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/Deck"
+                    }
+                  }
+                }
               }
           }
         }
       },
       "/deck": {
           "get": {
-            "summary": "Search decks",
-            "description": "Search all created decks.",
+            "summary": "Search all created decks.",
+            "description": "You can see all available cards in each created deck.",
             "tags": ["Deck"],
             "responses": {
               "500": {
@@ -51,7 +59,7 @@
         "/deck/{id}/": {
             "get": {
               "summary": "Search deck by id",
-              "description": "Search specific deck by id",
+              "description": "Search specific deck by id.",
               "tags": ["Deck"],
               "parameters": [
                 {
@@ -78,7 +86,7 @@
           "/card/{id}/": {
               "patch": {
                 "summary": "Removes one or more cards from the deck",
-                "description": "Removes one or more cards from the deck",
+                "description": "Pass the specific id of the deck created earlier, and in the query count you pass the amount of cards you want to remove from the deck. The value, one of A (for an ace), 2, 3, 4, 5, 6, 7, 8, 9, 0 (for a ten), J (jack), Q (queen), or K (king). The suit, one of S (Spades), D (Diamonds), C (Clubs), or H (Hearts). ",
                 "tags": ["Card"],
                 "parameters": [
                   {
@@ -114,17 +122,17 @@
         "Deck": {
           "type": "object",
           "properties": {
-            "deck_id": {
-              "type": "string"
+            "message": {
+              "type": "string",
+              "example": "Deck created successfully"
             },
-            "cards": {
-              "type": "array"
+            "deck_id": {
+              "type": "string",
+              "example": "4342ant7"
             },
             "remaining": {
-              "type": "number"
-            },
-            "createdAt": {
-              "type": "date"
+              "type": "number",
+              "example": 52
             }
           }
         }
