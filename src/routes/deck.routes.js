@@ -4,7 +4,7 @@ import {create, findAll, find} from "../controllers/deck.controller.js"
 const router = express.Router()
 
 router.post("/new", create)
-router.get("/", findAll)
+router.get("/search", findAll)
 router.get("/search/:id", find)
 
 export default router
