@@ -5,6 +5,6 @@ const router = express.Router()
 
 router.post("/new", create)
 router.get("/", findAll)
-router.get("/card/:id", find)
+router.get("/serch/:id", find)
 
 export default router
